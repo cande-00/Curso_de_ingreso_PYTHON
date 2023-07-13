@@ -33,8 +33,23 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass  
-            
+
+        boton = self.btn_mostrar.set()
+        title = "NOTA"
+        
+        if boton:
+            numero = random.randint(1,10)
+            if numero >= 1 and numero <= 3:
+                respuesta = "Desaprobado, la nota es ..." + numero
+                alert(title, f"{respuesta}")
+            else:
+                if numero == 4 and numero == 5:
+                    respuesta = "Aprobado, la nota es ..." + numero
+                    alert(title, f"{respuesta}")
+                else:
+                    if numero >= 6 and numero <= 10:
+                        respuesta = "Promoción directa, la nota es ..." + numero
+                        alert(title, f"{respuesta}")
 
 if __name__ == "__main__":
     app = App()

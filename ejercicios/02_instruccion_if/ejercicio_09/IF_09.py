@@ -29,7 +29,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        boton = self.btn_mostrar.get()
+        if boton:
+            numero = random.randint(1, 10)
+            title = "Mostrar"
+            numero = str(numero)
+            alert(title, f"{numero}")
         
 
 if __name__ == "__main__":
