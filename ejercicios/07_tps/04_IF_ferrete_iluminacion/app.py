@@ -81,6 +81,10 @@ class App(customtkinter.CTk):
                         descuento = str((precio * cantidad) * 0.95)
                         resultado = "el total es de: $" + descuento
                         alert(title, f"{resultado}")
+            if descuento > 4000:
+                descuento = str(descuento*0.05)
+                resultado = "el total es de: $" + descuento
+                alert(title, f"{resultado}")
 
 if __name__ == "__main__":
     app = App()
