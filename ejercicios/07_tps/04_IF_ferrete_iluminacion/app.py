@@ -38,9 +38,50 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
-        
+        marca = self.combobox_marca.get()
+        cantidad = self.combobox_cantidad.get()
+        cantidad = int(cantidad)
+        precio = 800
+        title = "Lamparitas"
     
+        #A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%
+        if cantidad >= 6:
+            descuento = str((precio * cantidad) * 0.5)
+            resultado = "el total es de: $" + descuento
+            alert(title, f"{resultado}") 
+        else:
+            if cantidad == 5:
+                if marca == "ArgentinaLuz":
+                    descuento = str((precio * cantidad) * 0.6)
+                    resultado = "el total es de: $" + descuento
+                    alert(title, f"{resultado}") 
+                else:
+                    descuento = str((precio * cantidad) * 0.7)
+                    resultado = "el total es de: $" + descuento
+                    alert(title, f"{resultado}")
+            else:
+                if cantidad == 4:
+                    if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+                        descuento = str((precio * cantidad) * 0.75)
+                        resultado = "el total es de: $" + descuento
+                        alert(title, f"{resultado}")
+                else:
+                    descuento = str((precio * cantidad) * 0.8)
+                    resultado = "el total es de: $" + descuento
+                    alert(title, f"{resultado}")        
+                    if cantidad == 3 and marca == "ArgentinaLuz":
+                        descuento = str((precio * cantidad) * 0.85)
+                        resultado = "el total es de: $" + descuento
+                        alert(title, f"{resultado}")
+                    elif cantidad == 3 and marca == "FelipeLamparas": 
+                        descuento = str((precio * cantidad) * 0.9)
+                        resultado = "el total es de: $" + descuento
+                        alert(title, f"{resultado}")
+                    else:
+                        descuento = str((precio * cantidad) * 0.95)
+                        resultado = "el total es de: $" + descuento
+                        alert(title, f"{resultado}")
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")
