@@ -43,14 +43,57 @@ class App(customtkinter.CTk):
         cantidad = int(cantidad)
         precio = 800
         title = "Lamparitas"
+        descuento = str((precio * cantidad))
+        resultado = "el total es de: $" + descuento
     
         #A.	Si compra 6 o más  lamparitas bajo consumo tiene un descuento del 50%
-        if cantidad >= 6:
-            descuento = str((precio * cantidad) * 0.5)
-            resultado = "el total es de: $" + descuento
-            alert(title, f"{resultado}") 
-        else:
-            if cantidad == 5:
+        # if cantidad >= 6:
+        #     descuento = str((precio * cantidad) * 0.5)
+        #     alert(title, f"{resultado}") 
+        # else:
+        #     if cantidad == 5:
+        #         if marca == "ArgentinaLuz":
+        #             descuento = str((precio * cantidad) * 0.6)
+        #             resultado = "el total es de: $" + descuento
+        #             alert(title, f"{resultado}") 
+        #         else:
+        #             descuento = str((precio * cantidad) * 0.7)
+        #             resultado = "el total es de: $" + descuento
+        #             alert(title, f"{resultado}")
+        #     else:
+        #         if cantidad == 4:
+        #             if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+        #                 descuento = str((precio * cantidad) * 0.75)
+        #                 resultado = "el total es de: $" + descuento
+        #                 alert(title, f"{resultado}")
+        #         else:
+        #             descuento = str((precio * cantidad) * 0.8)
+        #             resultado = "el total es de: $" + descuento
+        #             alert(title, f"{resultado}")        
+        #             if cantidad == 3 and marca == "ArgentinaLuz":
+        #                 descuento = str((precio * cantidad) * 0.85)
+        #                 resultado = "el total es de: $" + descuento
+        #                 alert(title, f"{resultado}")
+        #             elif cantidad == 3 and marca == "FelipeLamparas": 
+        #                 descuento = str((precio * cantidad) * 0.9)
+        #                 resultado = "el total es de: $" + descuento
+        #                 alert(title, f"{resultado}")
+        #             else:
+        #                 descuento = str((precio * cantidad) * 0.95)
+        #                 resultado = "el total es de: $" + descuento
+        #                 alert(title, f"{resultado}")
+        #     if descuento > 4000:
+        #         descuento = str(descuento*0.05)
+        #         resultado = "el total es de: $" + descuento
+        #         alert(title, f"{resultado}")
+
+        match cantidad:
+            case 6:
+                if marca == "ArgentinaLuz":
+                    descuento = str((precio * cantidad) * 0.5)
+                    resultado = "el total es de: $" + descuento
+                    alert(title, f"{resultado}")
+            case 5:
                 if marca == "ArgentinaLuz":
                     descuento = str((precio * cantidad) * 0.6)
                     resultado = "el total es de: $" + descuento
@@ -59,29 +102,33 @@ class App(customtkinter.CTk):
                     descuento = str((precio * cantidad) * 0.7)
                     resultado = "el total es de: $" + descuento
                     alert(title, f"{resultado}")
-            else:
-                if cantidad == 4:
-                    if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
+            case 4:
+                if marca == "ArgentinaLuz" or marca == "FelipeLamparas":
                         descuento = str((precio * cantidad) * 0.75)
                         resultado = "el total es de: $" + descuento
                         alert(title, f"{resultado}")
                 else:
                     descuento = str((precio * cantidad) * 0.8)
                     resultado = "el total es de: $" + descuento
-                    alert(title, f"{resultado}")        
-                    if cantidad == 3 and marca == "ArgentinaLuz":
+                    alert(title, f"{resultado}")
+            case 3:
+                if marca == "ArgentinaLuz":
                         descuento = str((precio * cantidad) * 0.85)
                         resultado = "el total es de: $" + descuento
                         alert(title, f"{resultado}")
-                    elif cantidad == 3 and marca == "FelipeLamparas": 
-                        descuento = str((precio * cantidad) * 0.9)
-                        resultado = "el total es de: $" + descuento
-                        alert(title, f"{resultado}")
-                    else:
-                        descuento = str((precio * cantidad) * 0.95)
-                        resultado = "el total es de: $" + descuento
-                        alert(title, f"{resultado}")
-            if descuento > 4000:
+                elif marca == "FelipeLamparas": 
+                    descuento = str((precio * cantidad) * 0.9)
+                    resultado = "el total es de: $" + descuento
+                    alert(title, f"{resultado}")
+                else:
+                    descuento = str((precio * cantidad) * 0.95)
+                    resultado = "el total es de: $" + descuento
+                    alert(title, f"{resultado}")
+            case other: 
+                precio *= cantidad
+                resultado = "el total es de: $" + str(precio)
+                alert(title, f"{resultado}")
+        if descuento > 4000:
                 descuento = str(descuento*0.05)
                 resultado = "el total es de: $" + descuento
                 alert(title, f"{resultado}")
