@@ -21,7 +21,11 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for i in range(10):
+            num = int(prompt("cantidad", "ingrese num aleatorios"))
+            if num == 9:
+                alert("eso","el culo te llueve")
+                break
         
     
 if __name__ == "__main__":

@@ -21,8 +21,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
-    
+        num = int(prompt("cantidad", "elige un numero"))
+        for i in range(1,num+1):
+            if num % i == 0 or num & 3 == 0 or num % 5 == 0 or num % 7 == 0:
+                resultado = "Es primo"
+            else:
+                resultado = "No es primo"
+        alert("", f"{resultado}")
+
 if __name__ == "__main__":
     app = App()
     app.geometry("300x300")

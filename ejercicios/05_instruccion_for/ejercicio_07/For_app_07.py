@@ -22,7 +22,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        cant = 0
+        num = int(prompt("cantidad", "elige un numero"))
+        for i in range(1,num+1):
+            if num % i == 0:
+                alert("numeros", f"{i}")
+                cant += 1
+                
+        alert("cant", f"{cant}")
         
     
 if __name__ == "__main__":

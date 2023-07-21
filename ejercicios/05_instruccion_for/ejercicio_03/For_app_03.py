@@ -29,7 +29,14 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        cant = self.txt_repetir.get()
+        cant = int(cant)
+
+        for i in range(0,cant):
+            alert(cant, "Hola UTN FRA")
+            
+        self.txt_repetir.delete(0, tkinter.END)
+        
 
         
         

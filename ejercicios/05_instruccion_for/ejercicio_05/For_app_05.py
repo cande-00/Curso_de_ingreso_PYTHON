@@ -3,6 +3,7 @@ from tkinter.messagebox import showinfo as alert
 from tkinter.messagebox import askyesno as question
 from tkinter.simpledialog import askstring as prompt
 import customtkinter
+from tkinter import messagebox
 
 '''
 Al presionar el botón Mostrar repetir el mensaje “¿Desea continuar?” (utilizando el Dialog QUESTION) 
@@ -22,7 +23,12 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        while True:
+            respuesta = messagebox.askquestion("UTN", "¿Desea continuar?")
+            if respuesta == "no":
+                break
+
+
         
     
 if __name__ == "__main__":
