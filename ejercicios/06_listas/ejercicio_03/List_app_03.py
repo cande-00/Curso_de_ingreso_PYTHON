@@ -24,7 +24,10 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        for i in self.lista_datos:
+            if i > self.lista_datos.index(i):
+                max = i
+        alert("el max es", f"{max}")
     
 if __name__ == "__main__":
     app = App()

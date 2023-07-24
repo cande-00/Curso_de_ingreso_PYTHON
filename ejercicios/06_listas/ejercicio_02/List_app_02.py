@@ -27,10 +27,18 @@ class App(customtkinter.CTk):
 
 
     def btn_mostrar_on_click(self):
-        pass
+        for i in self.lista_datos:
+            print(i)
+            
+        
         
     def btn_cargar_on_click(self):
-        pass
+        for i in range(0,3):
+            self.lista_datos.clear()
+            num = prompt("numero", "elija un num")
+            while num == None or not num.isdigit():
+                num = prompt("error", "elija un num")
+            self.lista_datos.append(num)
     
 if __name__ == "__main__":
     app = App()

@@ -24,7 +24,10 @@ class App(customtkinter.CTk):
 
 
     def btn_calcular_on_click(self):
-        pass
+        for i in self.lista_datos:
+            if i < self.lista_datos.index(i):
+                min = i
+        alert("el max es", f"{min}")
     
     
 if __name__ == "__main__":
