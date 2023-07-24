@@ -29,6 +29,7 @@ class App(customtkinter.CTk):
         self.btn_validar.grid(row=4, pady=20, columnspan=2, sticky="nsew")
 
     def btn_validar_on_click(self):
+        
         total_de_votos = 0
         suma_edad = 0
         max_votos = 0
@@ -39,7 +40,6 @@ class App(customtkinter.CTk):
         cant_edades = 0
         promedio_edades = 0
         
-
         while True:
             nombre = prompt("Candidato", "Ingrese el nombre")
             while nombre == None or nombre == "" or not nombre.isalpha():
