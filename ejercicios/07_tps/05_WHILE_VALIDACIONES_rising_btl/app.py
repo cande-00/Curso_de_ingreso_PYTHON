@@ -51,19 +51,39 @@ class App(customtkinter.CTk):
 
     def btn_validar_on_click(self):
         apellido = prompt("validar", "ingrese su apellido")
-        while (apellido == None or apellido == "") or not apellido.isalpha():
+        while apellido == None or apellido == "" or not apellido.isalpha():
             apellido = prompt("validar", "reingrese su apellido")
             
         edad = prompt("validar", "ingrese su edad")
-        while True:
-            if not edad == None or edad.isdigit():
-                edad = prompt("validar", "reingrese su edad")
-                continue
-            edad = int(edad)
-            if edad >= 18 or edad > 90:
-                edad = prompt("validar", "edad no valida") 
-            else:
-                break
+        while edad == None or not edad.isdigit() or int(edad) < 19 or int(edad) > 90:
+            edad = prompt("validar", "reingrese su edad")
+        edad = int(edad)
+
+        estado_civil = prompt("validar", "ingrese su estado civil")
+        while estado_civil == None or not estado_civil.isalpha() or estado_civil != "Soltero" and estado_civil != "Soltera" and estado_civil != "Casado" and estado_civil != "Casada" and estado_civil != "Divorciado" and estado_civil != "Divorciada" and estado_civil != "Viudo" and estado_civil != estado_civil != "Viuda":
+            estado_civil = prompt("validad", "reingrese su estado civil")
+        if estado_civil == "Soltero" or estado_civil == "Soltera":
+            estado_civil = "Soltero/a"
+        elif estado_civil == "Casado" or estado_civil == "Casada":
+            estado_civil = "Casado/a"
+        elif estado_civil == "Divorciado" or estado_civil == "Divorciada":
+            estado_civil = "Divorciado/a"
+        else:
+            estado_civil = "Viudo/a"
+        
+        legajo = prompt("validar", "ingrese su legaje")
+        while legajo == None or not legajo.isdigit() or int(legajo) < 1000 or int(legajo) > 9999:
+            legajo = prompt("validar", "reingrese su legajo")
+        legajo = int(legajo)
+
+        self.txt_apellido.delete(0, tkinter.END)
+        self.txt_apellido.insert(0, apellido)
+        self.txt_edad.delete(0, tkinter.END)
+        self.txt_edad.insert(0, edad)
+        self.combobox_tipo.delete(0, tkinter.END)
+        self.combobox_tipo.insert(0, edad)
+        self.txt_legajo.delete(0, tkinter.END)
+        self.txt_legajo.insert(0, legajo)
 
 
 if __name__ == "__main__":
